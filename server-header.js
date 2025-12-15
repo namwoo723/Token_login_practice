@@ -55,7 +55,7 @@ app.get("/", (req, res) => {
   // 이곳에 코드를 작성하세요.
   const accessToken = req.headers.authorization.split(" ")[1]
   const payload = jwt.verify(accessToken, secretKey)
-  const userInfo = users.find(el => el.user_id === payload)
+  const userInfo = users.find(el => el.user_id === payload.userId)
   // 4. 검증이 완료되면 유저정보를 클라이언트로 전송하세요.(res.send 사용)
   // 이곳에 코드를 작성하세요.
   return res.json(userInfo)
